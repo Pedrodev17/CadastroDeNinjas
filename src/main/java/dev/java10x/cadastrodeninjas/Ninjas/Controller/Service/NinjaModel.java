@@ -1,5 +1,8 @@
-package dev.java10x.cadastrodeninjas;
+package dev.java10x.cadastrodeninjas.Ninjas.Controller.Service;
+import dev.java10x.cadastrodeninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Table(name = "tb_cadastro")
 @Entity
@@ -9,9 +12,16 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private rivate Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    @ManyToOne
+    @joinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
